@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "revanity-gpu"
+version = "0.1.0"
+description = "GPU-enabled LXMF/Reticulum vanity key generator"
+requires-python = ">=3.10"
+dependencies = [
+  "pynacl>=1.5.0",
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+cuda = ["cupy-cuda12x>=13.3.0"]
+opencl = ["pyopencl>=2024.3"]
+dev = ["pytest>=8.2.0"]
+
+[project.scripts]
+revanity-gpu = "revanity_gpu.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["revanity_gpu*"]
