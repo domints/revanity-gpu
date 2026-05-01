@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+Taken from: https://github.com/CyberKiska/lxmf-vanity-address-generator
+License: GPL-3.0
+License text in: verify.py-LICENSE
+
 Verification script to check compatibility between generated identities
 and the reference Reticulum implementation.
 

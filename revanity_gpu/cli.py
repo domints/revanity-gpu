@@ -111,7 +111,7 @@ def main(
                 )
 
         gen.run_loop(
-            output_dir=out_dir,
+            output_dir=os.path.join("out", out_dir),
             loop_mode=loop,
             no_dupe=no_dupe,
             on_progress=on_progress,
