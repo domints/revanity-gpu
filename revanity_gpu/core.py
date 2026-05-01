@@ -402,6 +402,7 @@ class VanityGenerator:
         on_progress: Callable[[GeneratorStats], None] | None = None,
         on_result: Callable[[GeneratorResult], None] | None = None,
     ) -> None:
+        print(f"Running loop in directory: {output_dir}")
         found_per_pattern: dict[int, int] = {}
         jsonl_path = os.path.join(
             output_dir,
@@ -452,7 +453,7 @@ class VanityGenerator:
                 return
 
 
-def persist_single_result(result: GeneratorResult, dest_type: str, output_prefix: str) -> tuple[str, str]:
+def persist_single_result(result: GeneratorResult, dest_type: str, output_dir: str, output_prefix: str) -> tuple[str, str]:
     payload = export_payload(
         result.private_key,
         result.identity_hash,
@@ -460,6 +461,6 @@ def persist_single_result(result: GeneratorResult, dest_type: str, output_prefix
         dest_type,
         result.pattern_str,
     )
-    identity_path = save_identity_file(result.private_key, output_prefix + ".identity")
-    txt_path = save_identity_text(payload, output_prefix + ".txt")
+    identity_path = save_identity_file(result.private_key, os.path.join(output_dir, output_prefix + ".identity"))
+    txt_path = save_identity_text(payload, os.path.join(output_dir, output_prefix + ".txt"))
     return identity_path, txt_path

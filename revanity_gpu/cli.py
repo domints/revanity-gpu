@@ -124,7 +124,7 @@ def main(
         raise typer.Exit(1)
 
     out_prefix = output or result.dest_hash_hex
-    id_path, txt_path = persist_single_result(result, dest, out_prefix)
+    id_path, txt_path = persist_single_result(result, dest, "out", out_prefix)
     if quiet:
         typer.echo(result.dest_hash_hex)
     else:
