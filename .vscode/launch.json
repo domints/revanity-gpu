@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger: Module",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "revanity_gpu",
+            "args": ["--prefix", "ddddd"]
+        }
+    ]
+}
